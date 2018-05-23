@@ -1,0 +1,10 @@
+<p> <%= image_tag @project_item.thumbnail unless @project_item.thumbnail.nil? %> </p>
+
+<h1><%= @project_item.title %></h1> 
+
+<em><%= @project_item.description %></em>
+
+<h2>Contents:</h2>
+
+<%= link_to "Edit", edit_project_path(@project_item.id) %>
+<%= link_to "Back", projects_path %>
