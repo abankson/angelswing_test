@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projects
   devise_for :users, path: 'users', path_names: {sign_in: 'signin', sign_out: 'signout', sign_up: 'signup'}
 
   get 'contact', to: 'pages#contact'

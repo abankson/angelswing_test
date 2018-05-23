@@ -1,0 +1,11 @@
+<p> <%= image_tag @project_item.thumbnail unless @project_item.thumbnail.nil? %> </p>
+
+<h1><%= @project_item.title %></h1> 
+
+<em><%= @project_item.description %></em>
+
+<h2>Contents:</h2>
+
+<p> <%= link_to "Edit Project", edit_project_path(@project_item.id) %> </p>
+<p> <%= link_to "Delete Project", project_path(@project_item), method: :delete, data: { confirm: "Are you sure?" } %> </p>
+<p> <%= link_to "Back", projects_path %> </p>
