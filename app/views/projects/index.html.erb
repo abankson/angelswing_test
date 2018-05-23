@@ -1,8 +1,10 @@
 <h1>Projects</h1>
 
 <% @project_items.each do |item| %>
-  <h3> <%= item.title %> </h3>
+  <h2> <%= item.title %> </h2>
   <p> <%= item.description %> </p>
   <p> <%= image_tag item.thumbnail unless item.thumbnail.nil? %> </p>
+
+  <%= link_to "Edit", edit_project_path(item.id) %>
 
 <% end %>
