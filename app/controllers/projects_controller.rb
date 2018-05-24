@@ -1,10 +1,15 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  access all: [:show, :index],  
+          guest_user: {except: [:destroy, :new, :create, :update, :edit]},
+          user: {except: [:destroy]},
+          site_admin: :all
+
 
   def index 
     @project_items = Project.all
   end
-
+  
   def new
     @project_item = Project.new
   end
