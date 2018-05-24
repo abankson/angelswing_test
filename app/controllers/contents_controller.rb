@@ -18,6 +18,13 @@ class ContentsController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @content_item.update(content_params)
+        format.html { redirect_to project_path(@content_item.project_id), notice: 'Content was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   def destroy
