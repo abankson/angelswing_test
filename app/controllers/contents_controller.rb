@@ -39,6 +39,13 @@ class ContentsController < ApplicationController
   end
 
   def destroy
+    #destroying the object
+    @content_item.destroy
+
+    #The redirect after destroying
+    respond_to do |format|
+      format.html { redirect_to contents_url, notice: 'Content was removed.' }
+    end
   end
 
   private
