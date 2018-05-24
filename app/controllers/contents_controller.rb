@@ -6,9 +6,20 @@ class ContentsController < ApplicationController
   end
 
   def create
+    @content_item = Content.new(content_params)
+
+    respond_to do |format|
+      if @content_item.save
+        format.html { redirect_to project_path(@content_item.project_id), notice: 'Your project content has been created.' }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   def new
+    @content_item = Content.new
+    @project_id = params[:id]
   end
 
   def edit

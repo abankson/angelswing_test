@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  get 'projects/:id/new-content', to: 'contents#new', as: 'new-project-content'
+
   #sets root to home. Basically changing your homepage to home
   root to: 'pages#home'
 end

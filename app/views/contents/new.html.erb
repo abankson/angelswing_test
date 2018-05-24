@@ -1,0 +1,23 @@
+<h1>New Content</h1>
+
+<%= form_for(@content_item) do |form| %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content_type %>
+    <%= form.select :content_type, Content.content_types.map {|k, v| [k, k]} %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :project_id, :value => @project_id %>
+    Project: <%= @project_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
