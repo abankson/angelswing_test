@@ -1,5 +1,9 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
+  access all: [:show, :index],  
+          guest_user: {except: [:destroy, :new, :create, :update, :edit]},
+          user: {except: [:destroy]},
+          site_admin: :all
 
   def index
     @content_items = Content.all
