@@ -9,10 +9,20 @@
 
 3.times do |projectItem|
   Project.create!(
-    title: "Project #{projectItem}",
+    title: "Ruby Project #{projectItem}",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     thumbnail: "http://via.placeholder.com/350x200"
   )
+  3.times do |contentItem|
+    Content.create!(
+      title: "Content #{contentItem}, " + Project.last.title,
+      content_type: 1+rand(6),
+      project_id: Project.last.id
+    )
+  end
 end
 
-puts "3 Projects Created"
+puts "3 Projects Created with 3 contents each"
+
+User.create!(name: "Admin", email: "admin@development.com", password: "password", roles: "site_admin")
+puts "Admin User created. Email: admin@development.com, Password: password"
