@@ -22,6 +22,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project_contents = Project.find(params[:id]).contents
   end
 
   def edit
