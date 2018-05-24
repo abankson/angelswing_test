@@ -44,7 +44,11 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    #destroying the object
+    #destroying the contents of the project
+    @project_item.contents.each do |content|
+      content.destroy
+    end
+    #destroying the project
     @project_item.destroy
 
     #The redirect after destroying
