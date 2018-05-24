@@ -5,8 +5,8 @@
 <h3> Type: <%= @content_item.content_type %> </h3>
 
 
-<p> <%= link_to "Edit Content", edit_content_path(@content_item.id) %>
-<%= link_to "Delete Content", content_path(@content_item), method: :delete, data: { confirm: "Are you sure?" } %> </p>
+<p> <%= link_to "Edit Content", edit_content_path(@content_item.id) if logged_in?(:site_admin, :user)%>
+<%= link_to "Delete Content", content_path(@content_item), method: :delete, data: { confirm: "Are you sure?" } if logged_in?(:site_admin)%> </p>
 <hr>
 <p> <%= link_to "Back to Project", project_path(@content_item.project_id) %> 
 <%= link_to "Back to Contents", contents_path %> </p>

@@ -5,8 +5,8 @@
   <h3> Project <%= item.project_id %>: <%= link_to Project.find(item.project_id).title, project_path(item.project_id) %> </h3>
   <p> Type: <%= item.content_type %> </p>
 
-  <%= link_to "Edit", edit_content_path(item.id) %>
-  <%= link_to "Delete Content", content_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to "Edit", edit_content_path(item.id) if logged_in?(:site_admin, :user) %>
+  <%= link_to "Delete Content", content_path(item), method: :delete, data: { confirm: "Are you sure?" } if logged_in?(:site_admin) %>
 
 <% end %>
 

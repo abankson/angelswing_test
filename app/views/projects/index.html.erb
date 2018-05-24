@@ -7,7 +7,7 @@
   <p> <%= item.description %> </p>
   <p> <%= image_tag item.thumbnail unless item.thumbnail.nil? %> </p>
 
-  <p> <%= link_to "Edit", edit_project_path(item.id) %> </p>
-  <p> <%= link_to "Delete Project", project_path(item), method: :delete, data: { confirm: "Are you sure?" } %> </p>
+  <p> <%= link_to "Edit", edit_project_path(item.id) if logged_in?(:site_admin, :user) %> </p>
+  <p> <%= link_to "Delete Project", project_path(item), method: :delete, data: { confirm: "Are you sure?" } if logged_in?(:site_admin) %> </p>
 
 <% end %>
