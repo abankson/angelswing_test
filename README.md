@@ -9,6 +9,10 @@
 
 - Ruby 2.5.1
 
+### Database
+
+-PostgreSQL
+
 ### Features
 
 - User creation and management
