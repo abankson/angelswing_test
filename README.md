@@ -48,6 +48,7 @@ password: "password"
 - Learn to use partials for shared form files
 - Work with Views and Controllers more in the Rails architecture
 - Learn to style the entire project
+- Implement friendly_id for dynamic and readable routes
 
 ### Lesson Plan
 - https://devcamp.com/
